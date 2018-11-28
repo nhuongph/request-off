@@ -16,7 +16,7 @@ class BranchesTable extends Migration
         Schema::create('branches', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->unsignedInteger('company_id');
+            $table->integer('company_id')->unsigned();
             $table->foreign('company_id')->references('id')->on('companies');
             $table->time('email')->nullable();
             $table->string('phone_number', 12)->nullable();

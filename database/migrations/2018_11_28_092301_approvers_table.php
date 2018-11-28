@@ -15,11 +15,11 @@ class ApproversTable extends Migration
     {
         Schema::create('approvers', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('request_id');
+            $table->integer('request_id')->unsigned();
             $table->foreign('request_id')->references('id')->on('requests');
-            $table->unsignedInteger('employee_id');
+            $table->integer('employee_id')->unsigned();
             $table->foreign('employee_id')->references('id')->on('employees');
-            $table->tinyIncrements('status');
+            $table->tinyInteger('status');
             $table->text('comment')->nullable();
             $table->timestamps();
             $table->softDeletes();

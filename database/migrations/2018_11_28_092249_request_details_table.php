@@ -15,12 +15,12 @@ class RequestDetailsTable extends Migration
     {
         Schema::create('request_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('request_id');
+            $table->integer('request_id')->unsigned();
             $table->foreign('request_id')->references('id')->on('requests');
-            $table->timestamps('start_time');
-            $table->timestamps('end_time');
+            $table->timestamp('start_time');
+            $table->timestamp('end_time');
             $table->integer('total_minutes');
-            $table->timestamps('created_at');
+            $table->timestamp('created_at');
         });
     }
 

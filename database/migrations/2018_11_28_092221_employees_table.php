@@ -18,17 +18,17 @@ class EmployeesTable extends Migration
             $table->string('name', 50);
             $table->string('user_name', 20);
             $table->string('password');
-            $table->unsignedInteger('branch_id');
+            $table->integer('branch_id')->unsigned();
             $table->foreign('branch_id')->references('id')->on('branches');
-            $table->unsignedInteger('company_id');
+            $table->integer('company_id')->unsigned();
             $table->foreign('company_id')->references('id')->on('companies');
             $table->string('email')->unique();
             $table->string('phone_number', 12)->nullable();
             $table->string('address')->nullable();
-            $table->timestamps('start_date')->nullable();
-            $table->timestamps('end_date')->nullable();
-            $table->tinyIncrements('role');
-            $table->tinyIncrements('status');
+            $table->timestamp('start_date')->nullable();
+            $table->timestamp('end_date')->nullable();
+            $table->tinyInteger('role');
+            $table->tinyInteger('status');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
@@ -43,6 +43,6 @@ class EmployeesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('employees');
     }
 }

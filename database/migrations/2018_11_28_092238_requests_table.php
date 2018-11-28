@@ -15,11 +15,11 @@ class RequestsTable extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('employee_id');
+            $table->integer('employee_id')->unsigned();
             $table->foreign('employee_id')->references('id')->on('employees');
-            $table->unsignedInteger('branch_id');
+            $table->integer('branch_id')->unsigned();
             $table->foreign('branch_id')->references('id')->on('branches');
-            $table->tinyIncrements('status');
+            $table->tinyInteger('status');
             $table->text('content');
             $table->timestamps();
             $table->softDeletes();
