@@ -17,8 +17,8 @@ class CompaniesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('address')->nullable();
-            $table->string('phone_number', 12)->nullable();
-            $table->time('email')->nullable();
+            $table->string('phone_number', 20)->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

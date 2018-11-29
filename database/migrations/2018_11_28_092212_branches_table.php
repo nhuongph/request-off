@@ -18,8 +18,8 @@ class BranchesTable extends Migration
             $table->string('name');
             $table->integer('company_id')->unsigned();
             $table->foreign('company_id')->references('id')->on('companies');
-            $table->time('email')->nullable();
-            $table->string('phone_number', 12)->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone_number', 20)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
