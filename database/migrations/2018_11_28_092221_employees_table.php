@@ -18,12 +18,12 @@ class EmployeesTable extends Migration
             $table->string('name', 50);
             $table->string('user_name', 20);
             $table->string('password');
-            $table->integer('branch_id')->unsigned();
+            $table->integer('branch_id')->unsigned()->nullable();
             $table->foreign('branch_id')->references('id')->on('branches');
-            $table->integer('company_id')->unsigned();
+            $table->integer('company_id')->unsigned()->nullable();
             $table->foreign('company_id')->references('id')->on('companies');
             $table->string('email')->unique();
-            $table->string('phone_number', 12)->nullable();
+            $table->string('phone_number', 20)->nullable();
             $table->string('address')->nullable();
             $table->timestamp('start_date')->nullable();
             $table->timestamp('end_date')->nullable();
